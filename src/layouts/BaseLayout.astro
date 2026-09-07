@@ -1,0 +1,153 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+}
+
+const { title, description, canonical = 'https://bakestead.com/' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {/* Global document-shell styles: this layout owns the single page shell,
+        so the token/element rules below intentionally apply document-wide. */}
+    <style is:global>
+      :root {
+        color-scheme: light dark;
+        --bg: #faf6ef;
+        --ink: #2e2418;
+        --brand: #3f5a36;
+        --brand-ink: #fdfbf5;
+        --card: #ffffff;
+        --line: #e3d9c2;
+        --muted: #6b5f4b;
+        --focus: #1f4fd8;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Georgia, 'Times New Roman', serif;
+        line-height: 1.6;
+        background: var(--bg);
+        color: var(--ink);
+      }
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: -4rem;
+        z-index: 10;
+        background: var(--brand-ink);
+        color: var(--brand);
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--brand);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus-visible {
+        top: 1rem;
+      }
+      :focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 2px;
+      }
+      header {
+        background: var(--brand);
+        color: var(--brand-ink);
+        padding: 3rem 1.5rem;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+        font-size: clamp(2rem, 6vw, 3rem);
+        letter-spacing: 0.04em;
+      }
+      header p {
+        margin: 0.5rem auto 0;
+        max-width: 60ch;
+        font-style: italic;
+        opacity: 0.92;
+      }
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 3rem;
+      }
+      main > p {
+        max-width: 65ch;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+        padding: 0;
+        list-style: none;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1.25rem;
+        overflow-wrap: break-word;
+      }
+      .card h2 {
+        margin: 0.75rem 0 0.25rem;
+        font-size: 1.2rem;
+        color: var(--brand);
+      }
+      .card p {
+        margin: 0;
+      }
+      .card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        border-radius: 8px;
+        background: var(--bg);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 1.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      footer p {
+        margin: 0.25rem auto;
+        max-width: 70ch;
+      }
+      img {
+        max-width: 100%;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <slot />
+  </body>
+</html>

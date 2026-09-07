@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-labelledby="goodiesTitle">
+  <title id="goodiesTitle">Small-batch baked goodies</title>
+  <rect width="800" height="600" fill="#faf6ef"/>
+  <ellipse cx="400" cy="500" rx="240" ry="32" fill="#e3d9c2"/>
+  <g>
+    <circle cx="280" cy="380" r="90" fill="#b98a4e"/>
+    <circle cx="280" cy="380" r="90" fill="none" stroke="#8a6f4d" stroke-width="10"/>
+    <circle cx="255" cy="355" r="12" fill="#3f5a36"/>
+    <circle cx="300" cy="370" r="12" fill="#3f5a36"/>
+    <circle cx="270" cy="405" r="12" fill="#3f5a36"/>
+    <circle cx="520" cy="380" r="90" fill="#b98a4e"/>
+    <circle cx="520" cy="380" r="90" fill="none" stroke="#8a6f4d" stroke-width="10"/>
+    <circle cx="495" cy="355" r="12" fill="#3f5a36"/>
+    <circle cx="540" cy="370" r="12" fill="#3f5a36"/>
+    <circle cx="510" cy="405" r="12" fill="#3f5a36"/>
+    <ellipse cx="400" cy="300" rx="80" ry="70" fill="#d3a566" stroke="#8a6f4d" stroke-width="10"/>
+    <circle cx="400" cy="240" r="26" fill="#7a2e2e"/>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-labelledby="breadsTitle">
+  <title id="breadsTitle">Slow-fermented loaf</title>
+  <rect width="800" height="600" fill="#faf6ef"/>
+  <ellipse cx="400" cy="480" rx="260" ry="36" fill="#e3d9c2"/>
+  <ellipse cx="400" cy="360" rx="260" ry="130" fill="#b98a4e"/>
+  <ellipse cx="400" cy="330" rx="260" ry="120" fill="#d3a566"/>
+  <g stroke="#8a6f4d" stroke-width="16" stroke-linecap="round">
+    <path d="M300 300 L 360 350"/>
+    <path d="M380 285 L 440 335"/>
+    <path d="M460 285 L 520 335"/>
+  </g>
+  <ellipse cx="330" cy="280" rx="60" ry="24" fill="#e8c88f" opacity="0.8"/>
+</svg>

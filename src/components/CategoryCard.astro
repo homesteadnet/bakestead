@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  artwork: string;
+  artworkAlt: string;
+}
+
+const { title, description, artwork, artworkAlt } = Astro.props;
+---
+<article class="card">
+  {/* Eager: artwork is an inline sub-2KB SVG data URI (zero network cost),
+      so eager decoding keeps first render deterministic with no lazy flicker. */}
+  <img src={artwork} alt={artworkAlt} width="800" height="600" loading="eager" decoding="async" />
+  <h2>{title}</h2>
+  <p>{description}</p>
+</article>

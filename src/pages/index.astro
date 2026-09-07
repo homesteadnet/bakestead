@@ -1,0 +1,35 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import MarketGrid from '../components/MarketGrid.astro';
+
+export const prerender = true;
+
+type CategoryEntry = CollectionEntry<'categories'>;
+
+const categories = (await getCollection('categories'))
+  .sort((a: CategoryEntry, b: CategoryEntry) => a.data.order - b.data.order)
+  .map((entry: CategoryEntry) => ({
+    slug: entry.id.replace(/\.json$/, ''),
+    title: entry.data.title,
+    description: entry.data.description,
+  }));
+
+const title = 'BakeStead — Farmers Market Goods';
+const description =
+  'BakeStead is the Farmers’ Market brand of the Homestead Network Corporation: herbs, breads, baked goodies, and cottage foods.';
+---
+<BaseLayout title={title} description={description}>
+  <Header />
+  <main id="main-content" tabindex="-1">
+    <p>
+      Under the BakeStead table you will find herbs, breads, baked goodies, and other cottage
+      foods — grown and made across our homesteads and sold at local markets.
+    </p>
+    <MarketGrid categories={categories} />
+    <p>Find us at your local farmers market. Wholesale and franchise inquiries welcome.</p>
+  </main>
+  <Footer />
+</BaseLayout>

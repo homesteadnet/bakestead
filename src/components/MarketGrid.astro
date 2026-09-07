@@ -1,0 +1,42 @@
+---
+import CategoryCard from './CategoryCard.astro';
+import breadsArt from '../assets/breads.svg?url';
+import cottageFoodsArt from '../assets/cottage-foods.svg?url';
+import goodiesArt from '../assets/goodies.svg?url';
+import herbsArt from '../assets/herbs.svg?url';
+
+interface Category {
+  slug: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  categories: Category[];
+}
+
+const { categories } = Astro.props;
+
+const artwork: Record<string, { src: string; alt: string }> = {
+  herbs: { src: herbsArt, alt: 'Original illustration of bundled fresh herbs' },
+  breads: { src: breadsArt, alt: 'Original illustration of a slow-fermented loaf' },
+  goodies: { src: goodiesArt, alt: 'Original illustration of small-batch baked goodies' },
+  'cottage-foods': { src: cottageFoodsArt, alt: 'Original illustration of a cottage-food jam jar' },
+};
+---
+<section aria-label="Market goods">
+  <ul class="grid">
+    {
+      categories.map((category) => (
+        <li>
+          <CategoryCard
+            title={category.title}
+            description={category.description}
+            artwork={artwork[category.slug]?.src ?? herbsArt}
+            artworkAlt={artwork[category.slug]?.alt ?? `Original illustration for ${category.title}`}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</section>

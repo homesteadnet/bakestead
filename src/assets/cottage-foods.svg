@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-labelledby="jarTitle">
+  <title id="jarTitle">Cottage-food jam jar</title>
+  <rect width="800" height="600" fill="#faf6ef"/>
+  <ellipse cx="400" cy="500" rx="200" ry="30" fill="#e3d9c2"/>
+  <rect x="300" y="180" width="200" height="50" rx="10" fill="#3f5a36"/>
+  <rect x="310" y="230" width="180" height="240" rx="24" fill="#c96f4a"/>
+  <rect x="310" y="230" width="180" height="240" rx="24" fill="none" stroke="#8a6f4d" stroke-width="10"/>
+  <rect x="340" y="310" width="120" height="90" rx="10" fill="#faf6ef"/>
+  <text x="400" y="348" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#3f5a36">Jam</text>
+  <rect x="340" y="260" width="120" height="26" rx="13" fill="#e8c88f"/>
+</svg>
