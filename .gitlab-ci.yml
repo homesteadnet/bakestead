@@ -1,0 +1,15 @@
+# BakeStead: Astro v7 static site. The built site is published from the gh-pages branch
+# (see README), not from this pipeline, so this uses validate-only (lint + SAST + licence
+# scan, branch pipelines on the default branch and MRs only). static-site.yml is not used
+# because its mirror job would run, and fail, on every gh-pages push.
+include:
+  - project: 'DroidOpsInc/launch-sequence'
+    ref: main
+    file: '/pipelines/validate-only.yml'
+
+variables:
+  PREFLIGHT_IMAGE: "harbor.focuscell.org/focusapiary/node:26"
+  PREFLIGHT_COMMANDS: >-
+    npm ci --ignore-scripts &&
+    npm run check &&
+    npm run build
