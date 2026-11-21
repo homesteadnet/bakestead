@@ -1,0 +1,37 @@
+# orbital.yaml — bakestead
+# What this repo is written in, where its migration stands, who owns it, how it ships and what
+# protects its data. Schema: DroidOpsInc/launch-sequence schemas/orbital-v1.schema.json (ADR 0016).
+schema_version: v1.2
+name: bakestead
+category: frontend
+team: homesteadnet
+
+# --- Schema v1.2 declaration blocks (launch-sequence ADR 0016, DroidOpsInc/launch-sequence#336) ---
+# The file declares, a check proves. Decided from this repo's languages and pipeline (GitLab) and the live cluster on 2026-11-21.
+# First reading: static site or documents: no migration.
+
+# The languages new code may be written in. Python is never listed here.
+stack:
+  languages: [typescript, javascript]
+
+lifecycle: static
+
+# No owner block yet: this unit has no seated Commander. The Admiral assigns the reviewer.
+
+users:
+  live: false
+
+ui:
+  kit: none
+
+delivery:
+  branches:
+    work: agent/<seat>/<issue>-<slug>
+    integration: integrate/<topic>
+    default: main
+  live: none
+
+# The repo names its databases and volumes. Every other field of an entry (longhorn_snapshots,
+# offsite, schedule, retention_class, last_restore_test) is set and changed only by the storage
+# steward (FocusApiary/storage); nobody else types a value here.
+protection: []
